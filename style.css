@@ -6,27 +6,64 @@ body {
     background: #f1f2f6;
     font-family: 'Poppins', sans-serif;
     text-align: center;
+    background: url("images/nova.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+div{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 span{
   font-size: 0.8em;
   opacity: 0.5;
   text-decoration:underline;
+  color: #b2bec3
 }
 
 span:hover{
-  color: #706fd3;
-  
+  color: #706fd3; 
 }
 
-#button {
-	display: inline-block;
-	position: relative;
+a:visited{
+  color: #706fd3; 
+}
+
+ #btnLogin, #btnIncreva-se, #btnEnviar, #btnIncreva{
+	position: absolute;
 	margin: 18px 0;
 	padding: 10px 20px;
 	text-decoration: none;
 	color: white;
 	font-size: 12px;
-	background: #706fd3;
-  
+  background: #706fd3;
 }
+
+#btnLogin{
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+}
+
+#btnIncreva-se{
+  top: 105%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+}
+
+#btnEnviar{
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+}
+
+#btnIncreva{
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+}
+
