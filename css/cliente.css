@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+body {
+    height: 100%;
+    background: #f1f2f6;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: url("../images/nova.jpg");
+    background-repeat: repeat;
+    background-size: auto;
+}
+
+
+#analise_tabela_descricao {
+    padding-top: 100px;
+    top: 30%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+}
+
+#analise_tabela {
+    padding-top: 100px;
+    top: 20%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+}
+
+.id_topo{
+    top: 30%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+li {
+    float: left;
+}
+  
+  li a {
+    display: block;
+    padding: 8px;
+}
+  
