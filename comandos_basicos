@@ -1,0 +1,5 @@
+- python3 manage.py makemigrations polls
+
+- python3 manage.py migrate
+
+- python3 manager.py runserver
