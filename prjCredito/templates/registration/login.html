@@ -13,20 +13,17 @@
         <div>
             <h2 class="h2">Crédito Pré Aprovado</h2>
 
-            <form>
-                <h4 class="h4">E-mail</h4>
-                <input type="text" name="email" id="email"/>
-                <h4 class="h4">Senha <span><a href="C:\Users\lozizah\Documents\hellozizahh\Estudo\Facens\2020\2020S2\DesenvolvimentoAplicacoesWEB_Lab\analise_credito/esqueceu_senha.html">Esqueceu?</a></span></h4>
-                <input type="password" name="senha" id="senha"/>
-                <br>
-                <a id="btnLogin" href="#">Entrar</a>
+            <form method='POST'>
+                {% csrf_token  %}
+                {{form.as_p}}
+                <input type='submit'>Login</input>
                 <a id="btnIncreva-se" href="C:\Users\lozizah\Documents\hellozizahh\Estudo\Facens\2020\2020S2\DesenvolvimentoAplicacoesWEB_Lab\analise_credito/inscreva_se.html">Increva-se</a>
             </form>
         </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="bootstrap4/js/bootstrap.min.js"></script>
+    <script src="./prjCredito/static/js/bootstrap.min.js"></script>
     </body>
 </html>
 
