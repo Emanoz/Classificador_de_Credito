@@ -10,11 +10,20 @@
   </head>
   <body>
     <ul>
-      <li><a class="active" href="">Ficha</a></li>
       <li><a href="">Histórico</a></li>
       <li><a href="">Análises</a></li>
       <li style="float: right"><a href="">Sair</a></li>
+      <li>
+        <div class="dropdown">
+          <button class="dropbtn">Cadastros</button>
+          <div class="dropdown-content">
+            <a href="#">Ficha</a>
+            <a href="#">Usuários</a>
+          </div>
+        </div>
+      </li>
     </ul>
+
     <br />
     <h2>Solicitar Ficha</h2>
     <br />
@@ -26,10 +35,12 @@
             <label for="nome">Nome</label>
           </div>
           <div class="col-75">
-            <input type="text" 
-            id="nome" 
-            name="nome" 
-            placeholder="Nome completo" />
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Nome completo"
+            />
           </div>
         </div>
 
@@ -52,10 +63,7 @@
             <label for="rg">RG</label>
           </div>
           <div class="col-75">
-            <input type="text" 
-            id="rg" 
-            name="rg" 
-            placeholder="00.000.000-XX" />
+            <input type="text" id="rg" name="rg" placeholder="00.000.000-XX" />
           </div>
         </div>
 
@@ -64,10 +72,7 @@
             <label for="cep">CEP</label>
           </div>
           <div class="col-75">
-            <input type="text" 
-            id="cep" 
-            name="cep" 
-            placeholder="00000-000" />
+            <input type="text" id="cep" name="cep" placeholder="00000-000" />
           </div>
         </div>
 
@@ -121,10 +126,12 @@
             <label for="estados_civis">Estado Civil</label>
           </div>
           <div class="col-75">
-            <input list="estado_civil" 
-            name="estado" 
-            id="estado" 
-            placeholder="Selecione a opção"/>
+            <input
+              list="estado_civil"
+              name="estado"
+              id="estado"
+              placeholder="Selecione a opção"
+            />
             <datalist id="estado_civil">
               <option value="Solteiro(a)"></option>
               <option value="Casado(a)"></option>
@@ -139,10 +146,12 @@
             <label for="cpf">Cargo</label>
           </div>
           <div class="col-75">
-            <input list="cargos" 
-            name="cargo" 
-            id="cargo" 
-            placeholder="Selecione a opção"/>
+            <input
+              list="cargos"
+              name="cargo"
+              id="cargo"
+              placeholder="Selecione a opção"
+            />
             <datalist id="cargos">
               <option value="Supervisor(a)"></option>
             </datalist>

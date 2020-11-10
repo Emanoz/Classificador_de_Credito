@@ -11,10 +11,18 @@
   </head>
   <body>
     <ul>
-      <li><a class="active" href="">Ficha</a></li>
       <li><a href="">Histórico</a></li>
       <li><a href="">Análises</a></li>
       <li style="float: right"><a href="">Sair</a></li>
+      <li>
+        <div class="dropdown">
+          <button class="dropbtn">Cadastros</button>
+          <div class="dropdown-content">
+            <a href="#">Cargos</a>
+            <a href="#">Operadores</a>
+          </div>
+        </div>
+      </li>
     </ul>
     <br />
     <br />
@@ -23,7 +31,7 @@
     <div class="filter">
       <form>
         <input type="text" id="search" name="search" />
-        <input type="submit" value="Pesquisar" />
+        <input type="submit" value="Buscar" />
       </form>
     </div>
 
