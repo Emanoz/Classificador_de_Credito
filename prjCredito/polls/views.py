@@ -3,6 +3,6 @@ from django.views.generic import ListView
 from . models import Cadastro
 # Create your views here.
 
-class Login(ListView):
+class Dashboard(ListView):
     model = Cadastro
-    template_name = 'polls/login.html'
+    template_name = 'polls/dashboard.html'

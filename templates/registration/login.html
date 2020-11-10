@@ -7,16 +7,13 @@
     <title>Login</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
-  <body>
+  <body>  
     <div class="login-box">
       <h1>Classificador de crédito</h1>
-      <form>
+      <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
         <!-- USERNAME INPUT -->
-        <label for="email">E-mail</label>
-        <input type="text" placeholder="Digite o e-mail" />
-        <!-- PASSWORD INPUT -->
-        <label for="senha">Senha</label>
-        <input type="password" placeholder="Digite a senha" />
         <div  class="login-space">
             <a href="#">Esqueceu sua senha?</a></br>
         </div>
