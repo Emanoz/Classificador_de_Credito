@@ -13,6 +13,10 @@ body {
   box-sizing: border-box;
 }
 
+.menu {
+  padding: 0%;
+}
+
 input[type="text"],
 select,
 textarea {
@@ -76,7 +80,7 @@ textarea {
   margin-right: auto;
 }
 
-ul {
+.menu ul {
   height: 8%;
   list-style-type: none;
   margin: 0;
@@ -85,18 +89,18 @@ ul {
   background-color: #4a4b4a;
 }
 
-li {
+.menu li {
   float: left;
   text-align: center;
   border-right: 2px solid rgba(177, 176, 176, 0.747);
 }
 
-li:last-child {
+.menu li:last-child {
   border-right: none;
 }
 
 .dropdown .dropbtn,
-li a {
+.menu li a {
   display: block;
   color: #ffffff;
   text-align: center;
@@ -105,7 +109,7 @@ li a {
 }
 
 .dropdown:hover .dropbtn,
-li a:hover {
+.menu li a:hover {
   background-color: #111;
   color: #ffffff;
 }
@@ -172,6 +176,19 @@ input[type="image"] {
   outline: none;
 }
 
+.button-search {
+  display: flex;
+  justify-content: center;
+}
+
+.button-search input[type="text"] {
+  width: 80%;
+}
+
+.button-search input[type="submit"] {
+  margin: auto;
+}
+
 input[type="submit"] {
   font-family: "Poppins", sans-serif;
   height: 40px;
@@ -185,6 +202,7 @@ input[type="submit"] {
   border-radius: 20px;
 }
 
+.button-search button,
 input[type="submit"]:hover {
   cursor: pointer;
   background: linear-gradient(
