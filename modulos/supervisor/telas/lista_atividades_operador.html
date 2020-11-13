@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <title>Histórico de analises</title>
+    <title>Atividades do operador</title>
     <link rel="stylesheet" href="../../../css/layout.css" />
   </head>
   <body>
@@ -19,29 +19,35 @@
         <div class="dropdown">
           <button class="dropbtn">Cadastros</button>
           <div class="dropdown-content">
-            <a href="#">Ficha</a>
-            <a href="#">Usuários</a>
+            <a href="#">Cargos</a>
+            <a href="#">Operadores</a>
           </div>
         </div>
       </li>
     </ul>
     <br />
     <br />
-    <h3>Histórico de Análises</h3>
+
+    <h3>Atividades do operador</h3>
+    <div class="filter">
+      <form>
+        <input type="text" id="search" name="search" />
+        <input type="submit" value="Buscar" />
+      </form>
+    </div>
+
     <table class="table">
       <thead>
         <tr style="text-align: center">
-          <th>ID</th>
-          <th>Crédito pré aprovado</th>
-          <th>Status</th>
+          <th>ID operador</th>
+          <th>Nome operador</th>
           <th>Detalhes</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>1</td>
-          <td>R$</td>
-          <td>Finalizado</td>
+          <td>Emanuel</td>
           <td>
             <input
               type="image"
@@ -54,8 +60,7 @@
         </tr>
         <tr>
           <td>2</td>
-          <td>R$</td>
-          <td>Finalizado</td>
+          <td>Luiza</td>
           <td>
             <input
               type="image"

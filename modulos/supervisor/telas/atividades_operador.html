@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html long="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -27,50 +28,36 @@
     <br />
     <br />
 
-    <h3>Atividades do operador</h3>
-    <div class="filter">
-      <form>
-        <input type="text" id="search" name="search" />
-        <input type="submit" value="Buscar" />
-      </form>
-    </div>
+    <form>
+      <div class="row">
+        <h3>Atividades do operador</h3>
+        <div class="col-25">
+          <label for="id">ID do operador</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="id" name="id" disabled />
+        </div>
 
-    <table class="table">
-      <thead>
-        <tr style="text-align: center">
-          <th>ID operador</th>
-          <th>Nome operador</th>
-          <th>Detalhes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Emanuel</td>
-          <td>
-            <input
-              type="image"
-              src="../../../images/visible.png"
-              alt="Submit"
-              width="36"
-              height="36"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Luiza</td>
-          <td>
-            <input
-              type="image"
-              src="../../../images/visible.png"
-              alt="Submit"
-              width="36"
-              height="36"
-            />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+        <div class="col-25">
+          <label for="nome">Nome do operador</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="nome" name="nome" disabled />
+        </div>
+
+        <div class="col-25">
+          <label for="fichas">Fichas em análise</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="fichas" name="fichas" disabled />
+        </div>
+
+        <div class="col-25">
+          <label for="fichas">Fichas finalizadas</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="fichas" name="fichas" disabled />
+        </div>
+
   </body>
 </html>
