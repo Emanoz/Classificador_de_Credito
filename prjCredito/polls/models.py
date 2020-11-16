@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Cargo(models.Model):
     nome_cargo = models.CharField(max_length=30)
@@ -16,13 +17,9 @@ class Cadastro(models.Model):
     cep = models.CharField(max_length=8)
     renda = models.FloatField()
     qtd_filhos = models.IntegerField()
-    data_nascimento = models.DateTimeField()
+    #data_nascimento = models.DateTimeField(null = True)
     estado_civil = models.CharField(max_length=15)
     tempo_cargo = models.PositiveIntegerField()
-    caminho_foto = models.CharField(max_length=150)
-    caminho_rg = models.CharField(max_length=150)
-    caminho_cpf = models.CharField(max_length=150)
-    caminho_comprovante_renda = models.CharField(max_length=150)
     data_cadastro = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -60,12 +57,23 @@ class Ficha(models.Model):
                             choices = STATUS,
                             default = 'P')
     data_ficha = models.DateTimeField(auto_now_add=True)
+    credito = models.FloatField()
+    caminho_foto = models.CharField(max_length=150)
+    caminho_rg = models.CharField(max_length=150)
+    caminho_cpf = models.CharField(max_length=150)
+    caminho_comprovante_renda = models.CharField(max_length=150)
+
+    #def get_absolute_url(self):
+        #return reverse('ficha_detalhe', args=[self.pk])
 
     class Meta:
         ordering = ('-data_ficha',)
 
     def __str__(self):
         return str(self.id)
+
+
+
 
 
 

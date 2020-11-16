@@ -21,6 +21,20 @@ textarea {
   font-size: 16px;
 }
 
+.input_alt{
+  font-family: "Poppins", sans-serif;
+  height: 40px;
+  width: 160px;
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 18px;
+  border-radius: 20px;  
+}
+
+
 .container {
   border-radius: 5px;
   background-color: #ffffff;

@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+{% load static %}
 <html long="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -6,7 +8,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <title>Solicitar ficha</title>
-    <link rel="stylesheet" href="../../../css/layout.css" />
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}" />
   </head>
   <body>
     <ul>
@@ -28,19 +30,15 @@
     <h2>Solicitar Ficha</h2>
     <br />
     <div class="container">
-      <form>
+      <form method="POST" action=".">
+        {% csrf_token %}
         <h3>Anexar Documentos</h3>
         <div class="row">
           <div class="col-25">
             <label for="nome">Nome</label>
           </div>
           <div class="col-75">
-            <input
-              type="text"
-              id="nome"
-              name="nome"
-              placeholder="Nome completo"
-            />
+            {{form.nome}}
           </div>
         </div>
 
@@ -49,12 +47,7 @@
             <label for="cpf">CPF</label>
           </div>
           <div class="col-75">
-            <input
-              type="text"
-              id="cpf"
-              name="cpf"
-              placeholder="000.000.000-00"
-            />
+            {{form.cpf}}
           </div>
         </div>
 
@@ -63,7 +56,7 @@
             <label for="rg">RG</label>
           </div>
           <div class="col-75">
-            <input type="text" id="rg" name="rg" placeholder="00.000.000-XX" />
+            {{form.rg}}
           </div>
         </div>
 
@@ -72,7 +65,7 @@
             <label for="cep">CEP</label>
           </div>
           <div class="col-75">
-            <input type="text" id="cep" name="cep" placeholder="00000-000" />
+            {{form.cep}}
           </div>
         </div>
 
@@ -81,14 +74,7 @@
             <label for="renda">Renda</label>
           </div>
           <div class="col-75">
-            <input
-              type="number"
-              id="renda"
-              name="renda"
-              placeholder="0.000,00"
-              step="0.01"
-              min="0"
-            />
+            {{form.renda}}
           </div>
         </div>
 
@@ -97,13 +83,7 @@
             <label for="filhos">Filhos</label>
           </div>
           <div class="col-75">
-            <input
-              type="number"
-              id="filhos"
-              name="filhos"
-              placeholder="0"
-              min="0"
-            />
+            {{form.qtd_filhos}}
           </div>
         </div>
 
@@ -112,12 +92,7 @@
             <label for="nascimento">Data de Nascimento</label>
           </div>
           <div class="col-75">
-            <input
-              type="date"
-              id="nascimento"
-              name="nascimento"
-              placeholder="dd/mm/aaaa"
-            />
+            {{form.data_nascimento}}
           </div>
         </div>
 
@@ -126,18 +101,7 @@
             <label for="estados_civis">Estado Civil</label>
           </div>
           <div class="col-75">
-            <input
-              list="estado_civil"
-              name="estado"
-              id="estado"
-              placeholder="Selecione a opção"
-            />
-            <datalist id="estado_civil">
-              <option value="Solteiro(a)"></option>
-              <option value="Casado(a)"></option>
-              <option value="Divorciado(a)"></option>
-              <option value="Viúvo(a)"></option>
-            </datalist>
+            {{form.estado_civil}}
           </div>
         </div>
 
@@ -146,15 +110,7 @@
             <label for="cpf">Cargo</label>
           </div>
           <div class="col-75">
-            <input
-              list="cargos"
-              name="cargo"
-              id="cargo"
-              placeholder="Selecione a opção"
-            />
-            <datalist id="cargos">
-              <option value="Supervisor(a)"></option>
-            </datalist>
+            {{form.id_cargo}}
           </div>
         </div>
 
@@ -163,54 +119,9 @@
             <label for="cpf">Tempo no cargo (meses)</label>
           </div>
           <div class="col-75">
-            <input
-              type="number"
-              id="tempo"
-              name="tempo"
-              placeholder="0"
-              min="0"
-            />
+            {{form.tempo_cargo}}
           </div>
         </div>
-
-        <h3>Anexar Documentos</h3>
-
-        <div class="row">
-          <div class="col-25">
-            <label for="foto">Foto pessoal</label>
-          </div>
-          <div class="col-75">
-            <input type="file" id="foto" name="foto" />
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-25">
-            <label for="foto_cpf">CPF</label>
-          </div>
-          <div class="col-75">
-            <input type="file" id="foto_cpf" name="foto_cpf" />
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-25">
-            <label for="foto_rg">RG</label>
-          </div>
-          <div class="col-75">
-            <input type="file" id="foto_rg" name="foto_rg" />
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-25">
-            <label for="foto_renda">Comprovante de renda</label>
-          </div>
-          <div class="col-75">
-            <input type="file" id="foto_renda" name="foto_renda" />
-          </div>
-        </div>
-
         <div class="row">
           <input type="submit" value="Enviar" />
         </div>
