@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 class Cargo(models.Model):
     nome_cargo = models.CharField(max_length=30)
@@ -10,7 +11,7 @@ class Cargo(models.Model):
         return self.nome_cargo
 
 class Cadastro(models.Model):
-    id_cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE)
+    id_cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE, null=True, blank=True)
     nome = models.CharField(max_length=50)
     rg = models.CharField(max_length=9)
     cpf = models.CharField(max_length=11)
@@ -44,8 +45,8 @@ class Usuario(models.Model):
 
 class Ficha(models.Model):
     id_cadastro = models.ForeignKey(Cadastro, on_delete=models.CASCADE)
-    id_cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='Cliente')
-    id_operador = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='Operador')
+    id_cliente = models.ForeignKey(User, on_delete=models.CASCADE, related_name='Cliente')
+    id_operador = models.ForeignKey(User, on_delete=models.CASCADE, related_name='Operador', null=True, blank=True)
     STATUS = (
         ('P', 'Pendente'),
         ('E', 'Em análise'),
@@ -56,12 +57,12 @@ class Ficha(models.Model):
     status = models.CharField(max_length=15,
                             choices = STATUS,
                             default = 'P')
-    data_ficha = models.DateTimeField(auto_now_add=True)
-    credito = models.FloatField()
-    caminho_foto = models.CharField(max_length=150)
-    caminho_rg = models.CharField(max_length=150)
-    caminho_cpf = models.CharField(max_length=150)
-    caminho_comprovante_renda = models.CharField(max_length=150)
+    data_ficha = models.DateTimeField(auto_now_add=True, blank=True)
+    credito = models.FloatField(default=50, null=True, blank=True)
+    caminho_foto = models.CharField(max_length=150, null=True, blank=True)
+    caminho_rg = models.CharField(max_length=150, null=True, blank=True)
+    caminho_cpf = models.CharField(max_length=150, null=True, blank=True)
+    caminho_comprovante_renda = models.CharField(max_length=150, null=True, blank=True)
 
     #def get_absolute_url(self):
         #return reverse('ficha_detalhe', args=[self.pk])

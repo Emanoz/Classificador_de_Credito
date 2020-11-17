@@ -46,17 +46,19 @@
       </thead>
       <tbody>
         {% for ficha in object_list %}
-          <tr>
-            <!-- Listagem das fichas do cliente -->
-            <td>{{ ficha.id }}</td>
-            <td>{{ ficha.credito }}</td>
-            <td>{{ ficha.status }}</td>
-            <td>
-              <!--<a href="{{ ficha.get_absolute_url }}" >-->  
-                <img src="{% static 'images/visible.png' %}" width="36" height="36" />        
-              <!--</a>-->
-            </td>
-          </tr>
+          {% if ficha.id_cliente == user %}
+            <tr>
+              <!-- Listagem das fichas do cliente -->
+              <td>{{ ficha.id }}</td>
+              <td>{{ ficha.credito }}</td>
+              <td>{{ ficha.status }}</td>
+              <td>
+                <!--<a href="{{ ficha.get_absolute_url }}" >-->  
+                  <img src="{% static 'images/visible.png' %}" width="36" height="36" />        
+                <!--</a>-->
+              </td>
+            </tr>
+          {% endif %}
         {% endfor %}
       </tbody>
     </table>
