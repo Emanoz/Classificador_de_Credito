@@ -21,20 +21,6 @@ textarea {
   font-size: 16px;
 }
 
-.input_alt{
-  font-family: "Poppins", sans-serif;
-  height: 40px;
-  width: 160px;
-  border: none;
-  outline: none;
-  height: 40px;
-  background: #000000;
-  color: #ffffff;
-  font-size: 18px;
-  border-radius: 20px;  
-}
-
-
 .container {
   border-radius: 5px;
   background-color: #ffffff;
@@ -45,11 +31,14 @@ textarea {
 }
 
 .col-25 {
-  top: 50%;
   padding: 0%;
   float: left;
   width: 25%;
-  margin-top: 6px;
+  padding-right: 2%;
+  margin: auto;
+  top: 50%;
+  -ms-transform: translateY(50%);
+  transform: translateY(50%);
 }
 
 .col-75 {
@@ -63,6 +52,17 @@ textarea {
 .row {
   padding: 0%;
   padding-top: 2%;
+  text-align: end;
+  margin: auto;
+}
+
+.row h4,
+.row h3 {
+  text-align: center;
+}
+
+.row div {
+  margin: auto;
 }
 
 .row:after {
@@ -87,6 +87,7 @@ ul {
 
 li {
   float: left;
+  text-align: center;
   border-right: 2px solid rgba(177, 176, 176, 0.747);
 }
 
@@ -171,9 +172,14 @@ input[type="image"] {
   outline: none;
 }
 
+.button-search input[type="text"] {
+  height: 40px;
+  width: 70%;
+}
+
+.button-search button,
 input[type="submit"] {
   font-family: "Poppins", sans-serif;
-  height: 40px;
   width: 160px;
   border: none;
   outline: none;
@@ -184,6 +190,7 @@ input[type="submit"] {
   border-radius: 20px;
 }
 
+.button-search button,
 input[type="submit"]:hover {
   cursor: pointer;
   background: linear-gradient(
@@ -286,4 +293,9 @@ h3 {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.center-button {
+  margin: 0 auto;
+  text-align: center;
 }
