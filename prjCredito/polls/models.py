@@ -52,7 +52,6 @@ class Ficha(models.Model):
         ('E', 'Em análise'),
         ('A', 'Aprovado'),
         ('R', 'Reprovado'),
-        ('F', 'Falta de Informações'),
     )
     status = models.CharField(max_length=15,
                             choices = STATUS,
