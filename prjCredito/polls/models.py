@@ -67,7 +67,7 @@ class Ficha(models.Model):
         #return reverse('ficha_detalhe', args=[self.pk])
 
     class Meta:
-        ordering = ('-data_ficha',)
+        ordering = ('-data_ficha')
 
     def __str__(self):
         return str(self.id)
