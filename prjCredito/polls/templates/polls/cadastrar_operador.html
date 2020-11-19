@@ -30,32 +30,9 @@
     <br />
     <br />
 
-    <form method="POST", action=".">
+    <form method="POST">
     {% csrf_token %}
-      <div class="row">
-        <h3>Cadastrar operador</h3>
-        <div class="col-25">
-          <label for="cargo">E-mail</label>
-        </div>
-        <div class="col-75">
-          <input
-            type="text"
-            id="useroperador"
-            name="useroperador"
-            placeholder="E-mail"
-          />
-        </div>
-        <div class="col-25">
-          <label for="cargo">Senha</label>
-        </div>
-        <div class="col-75">
-          <input
-            type="text"
-            id="senhaoperador"
-            name="senhaoperador"
-            placeholder="Senha"
-          />
-        </div>
+      {{form.as_p}}
 
         <div class="button-space">
           <input type="submit" value="Cadastrar" />

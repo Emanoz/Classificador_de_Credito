@@ -66,8 +66,8 @@ class Ficha(models.Model):
     #def get_absolute_url(self):
         #return reverse('ficha_detalhe', args=[self.pk])
 
-    class Meta:
-        ordering = ('-data_ficha')
+    """class Meta:
+        ordering = ('-data_ficha')"""
 
     def __str__(self):
         return str(self.id)
