@@ -12,22 +12,32 @@
   </head>
   <body>
     <ul>
+      <li><a href="">Ficha</a></li>
       <li><a href="">Histórico</a></li>
       <li><a href="">Análises</a></li>
       <li>
         <div class="dropdown">
           <button class="dropbtn">Cadastros</button>
           <div class="dropdown-content">
+            <a href="#">Perfil</a>
             <a href="#">Cargos</a>
             <a href="#">Operadores</a>
           </div>
         </div>
       </li>
+      <li><a href="">Atividades</a></li>
+      <li><a href="">Relatórios</a></li>
       <li style="float: right"><a href="">Sair</a></li>
     </ul>
 
-    
     <h3>Esteira de Análises</h3>
+
+    <div class="filter">
+      <form>
+        <input type="text" id="search" name="search" />
+        <input type="submit" value="Buscar" />
+      </form>
+    </div>
     
     <table class="table">
       <thead>

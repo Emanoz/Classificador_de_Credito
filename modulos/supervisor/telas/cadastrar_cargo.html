@@ -12,21 +12,23 @@
   </head>
   <body>
     <ul>
+      <li><a href="">Ficha</a></li>
       <li><a href="">Histórico</a></li>
       <li><a href="">Análises</a></li>
       <li>
         <div class="dropdown">
           <button class="dropbtn">Cadastros</button>
           <div class="dropdown-content">
+            <a href="#">Perfil</a>
             <a href="#">Cargos</a>
             <a href="#">Operadores</a>
           </div>
         </div>
       </li>
+      <li><a href="">Atividades</a></li>
+      <li><a href="">Relatórios</a></li>
       <li style="float: right"><a href="">Sair</a></li>
     </ul>
-
-    
     <br />
     <br />
 
@@ -39,9 +41,9 @@
         <div class="col-75">
           <input type="text" id="cargo" name="cargo" placeholder="Cargo" />
         </div>
-        <h4>Faixa salarial</h4>
+        <h3>Faixa salarial</h3>
         <div class="col-25">
-          <label for="minimo">Salario mínimo</label>
+          <label for="minimo">Salário mínimo</label>
         </div>
         <div class="col-75">
           <input
@@ -55,7 +57,7 @@
         </div>
 
         <div class="col-25">
-          <label for="maximo">Salario máximo</label>
+          <label for="maximo">Salário máximo</label>
         </div>
         <div class="col-75">
           <input
@@ -72,6 +74,68 @@
           <input type="submit" value="Cadastrar" />
         </div>
       </div>
-    </form>
+
+      <div>
+        <table class="table">
+          <thead>
+            <tr style="text-align: center">
+              <th>Cargo</th>
+              <th>Salário mínimo</th>
+              <th>Salário máximo</th>
+              <th>Alterar</th>
+              <th>Remover</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Engenheiro</td>
+              <td>R$ 11111</td>
+              <td>R$ 99999</td>
+              <td>
+                <input
+                  type="image"
+                  src="../../../images/alterar.png"
+                  alt="Submit"
+                  width="36"
+                  height="36"
+                />
+              </td>
+              <td>
+                <input
+                  type="image"
+                  src="../../../images/remover.png"
+                  alt="Submit"
+                  width="36"
+                  height="36"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Analista</td>
+              <td>R$ 11111</td>
+              <td>R$ 99999</td>
+              <td>
+                <input
+                  type="image"
+                  src="../../../images/alterar.png"
+                  alt="Submit"
+                  width="36"
+                  height="36"
+                />
+              </td>
+              <td>
+                <input
+                  type="image"
+                  src="../../../images/remover.png"
+                  alt="Submit"
+                  width="36"
+                  height="36"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
   </body>
 </html>
