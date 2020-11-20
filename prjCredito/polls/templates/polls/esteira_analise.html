@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+{% load static %}
 <html long="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -7,13 +9,12 @@
     />
 
     <title>Esteira de Análises</title>
-    <link rel="stylesheet" href="../../../css/layout.css" />
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}" />
   </head>
   <body>
     <ul>
       <li><a href="">Histórico</a></li>
       <li><a href="">Análises</a></li>
-      <li style="float: right"><a href="">Sair</a></li>
       <li>
         <div class="dropdown">
           <button class="dropbtn">Cadastros</button>
@@ -23,15 +24,44 @@
           </div>
         </div>
       </li>
+      <li style="float: right"><a href="">Sair</a></li>
     </ul>
 
-    <br />
-    <br />
+    
+    <h3>Esteira de Análises</h3>
+    
+    <table class="table">
+      <thead>
+        <tr style="text-align: center">
+          <th>ID</th>
+          <th>Crédito pré aprovado</th>
+          <th>Status</th>
+          <th>Atribuir-se</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ficha in object_list %}
+          {% if ficha.status == 'P' %}
+            <tr>
+              <td>{{ ficha.id }}</td>
+              <td>{{ ficha.credito }}</td>
+              <td>{{ ficha.status }}</td>
+              <td>
+                  <a href="{% url 'atribuir_operador' id_ficha=ficha.id %}">
+                  <input
+                    type="image"
+                    src="{% static 'images/add_user.png' %}"
+                    alt="Submit"
+                    width="36"
+                    height="36"
+                  />
+                </a>
+              </td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
 
-    <form>
-      <div class="row">
-        <h3>Esteira de Análises</h3>
-      </div>
-    </form>
+    
   </body>
 </html>

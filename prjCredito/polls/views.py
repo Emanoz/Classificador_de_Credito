@@ -28,6 +28,10 @@ class CadastroCargo(CreateView):
     fields = "__all__"
     success_url = "."  
 
+class EsteiraOperador(ListView):
+    model = Ficha
+    template_name = 'polls/esteira_analise.html'
+
 def CadastroOperador(request):
     if request.method == 'POST':
         form = OperadorForm(request.POST)
@@ -40,4 +44,14 @@ def CadastroOperador(request):
     else:
         form = OperadorForm()
     return render(request, 'polls/cadastrar_operador.html', {'form': form})
+
+def atribuirOperador(request, id_ficha):
+    ficha = Ficha.objects.get(id=id_ficha)
+
+    ficha.status = 'E'
+    ficha.id_operador = request.user
+    ficha.save()
+
+    return render(request, 'polls/esteira_analise.html')
+    
   
