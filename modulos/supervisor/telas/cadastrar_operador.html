@@ -2,30 +2,31 @@
 <html long="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="sortcut icon" href="../../../images/icons.png" type="image/png"/>;
 
-    <title>Cadastrar operador</title>
+    <title>Classificador de crédito</title>
     <link rel="stylesheet" href="../../../css/layout.css" />
   </head>
   <body>
     <ul>
+      <li><a href="">Ficha</a></li>
       <li><a href="">Histórico</a></li>
       <li><a href="">Análises</a></li>
       <li>
         <div class="dropdown">
           <button class="dropbtn">Cadastros</button>
           <div class="dropdown-content">
+            <a href="#">Perfil</a>
             <a href="#">Cargos</a>
             <a href="#">Operadores</a>
           </div>
         </div>
       </li>
+      <li><a href="">Atividades</a></li>
+      <li><a href="">Relatórios</a></li>
       <li style="float: right"><a href="">Sair</a></li>
     </ul>
-
     <br />
     <br />
 
@@ -33,13 +34,24 @@
       <div class="row">
         <h3>Cadastrar operador</h3>
         <div class="col-25">
-          <label for="cargo">E-mail</label>
+          <label for="cargo">User</label>
         </div>
         <div class="col-75">
           <input
             type="text"
             id="useroperador"
             name="useroperador"
+            placeholder="User"
+          />
+        </div>
+        <div class="col-25">
+          <label for="cargo">E-mail</label>
+        </div>
+        <div class="col-75">
+          <input
+            type="text"
+            id="emailoperador"
+            name="emailoperador"
             placeholder="E-mail"
           />
         </div>
@@ -59,6 +71,65 @@
           <input type="submit" value="Cadastrar" />
         </div>
       </div>
-    </form>
+
+      <div>
+        <table class="table">
+          <thead>
+            <tr style="text-align: center">
+              <th>Usuário</th>
+              <th>E-mail</th>
+              <th>Alterar</th>
+              <th>Remover</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>loiza</td>
+              <td>lozizah@test</td>
+              <td>
+                <input
+                  type="image"
+                  src="../../../images/alterar.png"
+                  alt="Submit"
+                  width="36"
+                  height="36"
+                />
+              </td>
+              <td>
+                <input
+                  type="image"
+                  src="../../../images/remover.png"
+                  alt="Submit"
+                  width="36"
+                  height="36"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>emanos</td>
+              <td>emanis@test</td>
+              <td>
+                <input
+                  type="image"
+                  src="../../../images/alterar.png"
+                  alt="Submit"
+                  width="36"
+                  height="36"
+                />
+              </td>
+              <td>
+                <input
+                  type="image"
+                  src="../../../images/remover.png"
+                  alt="Submit"
+                  width="36"
+                  height="36"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
   </body>
 </html>
