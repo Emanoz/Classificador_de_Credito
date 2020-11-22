@@ -25,6 +25,17 @@ class CadastroFicha(CreateView):
     fields = "__all__"
     success_url = "/"
 
+class SolicitarFicha(CreateView):
+    model = Ficha
+    template_name = 'polls/solicitar_ficha.html'
+    fields = "__all__"
+    success_url = "/"
+
+class FichaDetalhe(DetailView):
+    model = Ficha
+    template_name = "polls/detalhes_ficha.html"
+    fields = "__all__"
+
 class CadastroCargo(CreateView):
     model = Cargo
     template_name = 'polls/cadastrar_cargo.html'
@@ -80,7 +91,7 @@ def atribuirOperador(request, id_ficha):
     ficha.id_operador = request.user
     ficha.save()
 
-    return render(request, 'polls/esteira_analise.html')
+    return HttpResponseRedirect("/detalhes_ficha/" + id_ficha) 
 
 class ListarOperadores(ListView):
     model = User

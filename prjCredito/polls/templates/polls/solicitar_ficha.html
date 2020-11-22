@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html long="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="sortcut icon" href="{% static 'images/icons.png' %}" type="image/png"/>;
+
+    <title>Classificador de crédito</title>
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}" />
+  </head>
+  <body>
+    <ul>
+        <li><a href="">Ficha</a></li>
+        <li><a href="">Histórico</a></li>
+        <li><a href="">Análises</a></li>
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Cadastros</button>
+            <div class="dropdown-content">
+              <a href="#">Perfil</a>
+              <a href="#">Cargos</a>
+              <a href="#">Operadores</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="">Atividades</a></li>
+        <li><a href="">Relatórios</a></li>
+        <li style="float: right"><a href="">Sair</a></li>
+      </ul>
+
+    <br />
+    <h2>Ficha</h2>
+    <br />
+    <div class="container">
+      <form method="POST">
+        <h3>Dados</h3>
+        <div class="row">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div class="col-25">
+            <label for="solicitar">Você quer solicitar uma nova ficha?</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <input type="submit" value="Solicitar" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

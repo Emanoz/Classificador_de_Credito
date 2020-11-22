@@ -4,12 +4,13 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('', views.Dashboard.as_view(), name='dashboard'),
-    #path('polls/<int:pk>/', views.FichaDetalhe.as_view(), name='ficha_detalhe'),
+    path('polls/<int:pk>/', views.FichaDetalhe.as_view(), name='detalhes_ficha'),
     path('polls/cadastro_perfil/', views.CadastroFicha.as_view(), name='cadastro_perfil'),
     path('polls/cadastro_cargo/', views.CadastroCargo.as_view(), name='cadastro_cargo'),
     path('polls/listar_cargos/', views.ListarCargos.as_view(), name='lista_cargos'),
     path('polls/listar_operadores/', views.ListarOperadores.as_view(), name='listar_operadores'),
     path('polls/esteira_analise/', views.EsteiraOperador.as_view(), name='esteira_analise'),
+    path('polls/solicitar_ficha/', views.SolicitarFicha.as_view(), name='solicitar_ficha'),
     url(r'^atribuir_operador/(?P<id_ficha>\w+)/$', views.atribuirOperador, name='atribuir_operador'),
     url(r'^excluir_cargo/(?P<id_cargo>\w+)/$', views.excluir_cargo, name='excluir_cargo'),
     url(r'^atualizar_cargo/(?P<id_cargo>\w+)/$', views.atualizar_cargo, name='atualizar_cargo'),

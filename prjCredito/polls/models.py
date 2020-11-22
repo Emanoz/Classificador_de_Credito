@@ -11,6 +11,7 @@ class Cargo(models.Model):
         return self.nome_cargo
 
 class Cadastro(models.Model):
+    id_cliente = models.ForeignKey(User, on_delete=models.CASCADE)
     id_cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE, null=True, blank=True)
     nome = models.CharField(max_length=50)
     rg = models.CharField(max_length=9)
@@ -45,7 +46,6 @@ class Usuario(models.Model):
 
 class Ficha(models.Model):
     id_cadastro = models.ForeignKey(Cadastro, on_delete=models.CASCADE)
-    id_cliente = models.ForeignKey(User, on_delete=models.CASCADE, related_name='Cliente')
     id_operador = models.ForeignKey(User, on_delete=models.CASCADE, related_name='Operador', null=True, blank=True)
     STATUS = (
         ('P', 'Pendente'),
@@ -63,8 +63,8 @@ class Ficha(models.Model):
     caminho_cpf = models.CharField(max_length=150, null=True, blank=True)
     caminho_comprovante_renda = models.CharField(max_length=150, null=True, blank=True)
 
-    #def get_absolute_url(self):
-        #return reverse('ficha_detalhe', args=[self.pk])
+    def get_absolute_url(self):
+        return reverse('detalhes_ficha', args=[self.pk])
 
     """class Meta:
         ordering = ('-data_ficha')"""

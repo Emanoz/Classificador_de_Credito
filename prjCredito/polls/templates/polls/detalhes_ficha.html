@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+{% load static %}
+<html long="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="sortcut icon" href="{% static 'images/icons.png' %}" type="image/png"/>
+
+    <title>Classificador de crédito</title>
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}" />
+  </head>
+  <body>
+    <ul>
+      <li><a href="">Ficha</a></li>
+      <li><a href="">Histórico</a></li>
+      <li><a href="">Análises</a></li>
+      <li>
+        <div class="dropdown">
+          <button class="dropbtn">Cadastros</button>
+          <div class="dropdown-content">
+            <a href="#">Perfil</a>
+            <a href="#">Cargos</a>
+            <a href="#">Operadores</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="">Atividades</a></li>
+      <li><a href="">Relatórios</a></li>
+      <li style="float: right"><a href="">Sair</a></li>
+    </ul>
+    <br />
+    <br />
+
+    <form>
+      <div class="row">
+        <div class="col-25">
+          <label for="nome">Nome</label>
+        </div>
+        <div class="col-75">
+          {{ object.id_cadastro.nome }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label for="cpf">CPF</label>
+        </div>
+        <div class="col-75">
+          {{ object.id_cadastro.cpf }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label for="rg">RG</label>
+        </div>
+        <div class="col-75">
+          {{ object.id_cadastro.rg }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label for="cep">CEP</label>
+        </div>
+        <div class="col-75">
+          {{ object.id_cadastro.cep }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label for="renda">Renda</label>
+        </div>
+        <div class="col-75">
+          {{ object.id_cadastro.renda }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label for="filhos">Filhos</label>
+        </div>
+        <div class="col-75">
+          {{ object.id_cadastro.qtd_filhos }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label for="nascimento">Data de Nascimento</label>
+        </div>
+        <div class="col-75">
+          <input type="date" id="nascimento" name="nascimento" disabled/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label for="estados_civis">Estado Civil</label>
+        </div>
+        <div class="col-75">
+          {{ object.id_cadastro.estado_civil }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label for="cpf">Cargo</label>
+        </div>
+        <div class="col-75">
+          {{ object.id_cadastro.id_cargo.nome_cargo }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label for="cpf">Tempo no cargo (meses)</label>
+        </div>
+        <div class="col-75">
+          {{ object.id_cadastro.tempo_cargo }}
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-25">
+          <label for="foto">Foto pessoal</label>
+        </div>
+        <div class="col-75">
+          <input type="image" id="foto" name="foto" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label for="foto_cpf">CPF</label>
+        </div>
+        <div class="col-75">
+          <input type="image" id="foto_cpf" name="foto_cpf" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label for="foto_rg">RG</label>
+        </div>
+        <div class="col-75">
+          <input type="image" id="foto_rg" name="foto_rg" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label for="foto_renda">Comprovante de renda</label>
+        </div>
+        <div class="col-75">
+          <input type="image" id="foto_renda" name="foto_renda" />
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
