@@ -1,13 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView
 from . models import Ficha, Cadastro, Cargo
 from django.contrib import messages
-from .forms import CadastroForm, FichaForm, OperadorForm
+from .forms import CadastroForm, FichaForm, OperadorForm, CargoForm
 from django import forms
 from django.contrib.auth.decorators import login_required
 from django.contrib.sites.shortcuts import get_current_site
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, User
+from django.shortcuts import (get_object_or_404, 
+                              render,  
+                              HttpResponseRedirect) 
 from django.http import HttpResponse
 # Create your views here.
 
@@ -27,6 +30,31 @@ class CadastroCargo(CreateView):
     template_name = 'polls/cadastrar_cargo.html'
     fields = "__all__"
     success_url = "."  
+
+class ListarCargos(ListView):
+    model = Cargo
+    template_name = 'polls/lista_cargos.html'
+
+def excluir_cargo(request, id_cargo): 
+    cargo = Cargo.objects.get(id=id_cargo) 
+    cargo.delete() 
+
+    return HttpResponseRedirect("/polls/listar_cargos") 
+
+def atualizar_cargo(request, id_cargo): 
+    context = {}
+
+    cargo = Cargo.objects.get(id=id_cargo) 
+  
+    form = CargoForm(request.POST or None, instance = cargo) 
+  
+    if form.is_valid(): 
+        form.save() 
+        return HttpResponseRedirect("/polls/listar_cargos") 
+   
+    context["form"] = form 
+  
+    return render(request, "polls/atualizar_cargo.html", context) 
 
 class EsteiraOperador(ListView):
     model = Ficha
@@ -53,5 +81,33 @@ def atribuirOperador(request, id_ficha):
     ficha.save()
 
     return render(request, 'polls/esteira_analise.html')
-    
+
+class ListarOperadores(ListView):
+    model = User
+    template_name = 'polls/listar_operadores.html'
+
+    def get_queryset(self):
+        return self.model.objects.filter(groups = Group.objects.get(name='Operador'))
+
+def excluir_operador(request, id_operador): 
+    operador = User.objects.get(id=id_operador) 
+    operador.delete() 
+
+    return HttpResponseRedirect("/polls/listar_operadores") 
+
+def atualizar_operador(request, id_operador): 
+    context = {}
+
+    operador = User.objects.get(id=id_operador) 
+  
+    form = OperadorForm(request.POST or None, instance = operador) 
+  
+    if form.is_valid(): 
+        form.save() 
+        return HttpResponseRedirect("/polls/listar_operadores") 
+   
+    context["form"] = form 
+  
+    return render(request, "polls/atualizar_operador.html", context) 
+
   

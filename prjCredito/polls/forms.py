@@ -1,5 +1,5 @@
 from django import forms
-from .models import Cadastro, Ficha
+from .models import Cadastro, Ficha, Cargo
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -14,6 +14,12 @@ class FichaForm(forms.ModelForm):
 
     class Meta:
         model = Ficha
+        fields =  "__all__"
+
+class CargoForm(forms.ModelForm):    
+
+    class Meta:
+        model = Cargo
         fields =  "__all__"
 
 class OperadorForm(UserCreationForm):

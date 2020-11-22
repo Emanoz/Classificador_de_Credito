@@ -7,7 +7,13 @@ urlpatterns = [
     #path('polls/<int:pk>/', views.FichaDetalhe.as_view(), name='ficha_detalhe'),
     path('polls/cadastro_perfil/', views.CadastroFicha.as_view(), name='cadastro_perfil'),
     path('polls/cadastro_cargo/', views.CadastroCargo.as_view(), name='cadastro_cargo'),
+    path('polls/listar_cargos/', views.ListarCargos.as_view(), name='lista_cargos'),
+    path('polls/listar_operadores/', views.ListarOperadores.as_view(), name='listar_operadores'),
     path('polls/esteira_analise/', views.EsteiraOperador.as_view(), name='esteira_analise'),
     url(r'^atribuir_operador/(?P<id_ficha>\w+)/$', views.atribuirOperador, name='atribuir_operador'),
+    url(r'^excluir_cargo/(?P<id_cargo>\w+)/$', views.excluir_cargo, name='excluir_cargo'),
+    url(r'^atualizar_cargo/(?P<id_cargo>\w+)/$', views.atualizar_cargo, name='atualizar_cargo'),
     url(r'^polls/cadastro_operador/$', views.CadastroOperador, name='cadastro_operador'),
+    url(r'^excluir_operador/(?P<id_operador>\w+)/$', views.excluir_operador, name='excluir_operador'),
+    url(r'^atualizar_operador/(?P<id_operador>\w+)/$', views.atualizar_operador, name='atualizar_operador'),
 ]

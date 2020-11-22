@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html long="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Atualizar cargo</title>
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}" />
+  </head>
+  <body>
+    <ul>
+      <li><a href="">Histórico</a></li>
+      <li><a href="">Análises</a></li>
+      <li style="float: right"><a href="">Sair</a></li>
+      <li>
+        <div class="dropdown">
+          <button class="dropbtn">Cadastros</button>
+          <div class="dropdown-content">
+            <a href="#">Cargos</a>
+            <a href="#">Operadores</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <br />
+    <br />
+
+    <form method="POST"> 
+        {% csrf_token %} 
+        {{ form.as_p }} 
+        <input type="submit" value="Atualizar"> 
+    </form> 
+  </body>

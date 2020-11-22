@@ -54,11 +54,12 @@
         <div class="col-75">
           {{ form.salario_maximo }}
         </div>
-
-        <div class="button-space">
+      </div>
+      <div class="button-space">
           <input type="submit" value="Cadastrar" />
         </div>
-      </div>
     </form>
+    <div class="button-space">
+          <a href="{% url 'lista_cargos' %}">Visualizar cargos</a>
   </body>
 </html>
