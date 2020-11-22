@@ -10,6 +10,7 @@ urlpatterns = [
     path('polls/listar_cargos/', views.ListarCargos.as_view(), name='lista_cargos'),
     path('polls/listar_operadores/', views.ListarOperadores.as_view(), name='listar_operadores'),
     path('polls/esteira_analise/', views.EsteiraOperador.as_view(), name='esteira_analise'),
+    path('polls/verificar_cadastro/', views.verificar_cadastro, name='verificar_cadastro'),
     path('polls/solicitar_ficha/', views.SolicitarFicha.as_view(), name='solicitar_ficha'),
     url(r'^atribuir_operador/(?P<id_ficha>\w+)/$', views.atribuirOperador, name='atribuir_operador'),
     url(r'^excluir_cargo/(?P<id_cargo>\w+)/$', views.excluir_cargo, name='excluir_cargo'),

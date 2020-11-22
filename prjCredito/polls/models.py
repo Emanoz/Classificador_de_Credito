@@ -11,7 +11,7 @@ class Cargo(models.Model):
         return self.nome_cargo
 
 class Cadastro(models.Model):
-    id_cliente = models.ForeignKey(User, on_delete=models.CASCADE)
+    id_cliente = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     id_cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE, null=True, blank=True)
     nome = models.CharField(max_length=50)
     rg = models.CharField(max_length=9)
@@ -45,7 +45,7 @@ class Usuario(models.Model):
         return self.email
 
 class Ficha(models.Model):
-    id_cadastro = models.ForeignKey(Cadastro, on_delete=models.CASCADE)
+    id_cadastro = models.ForeignKey(Cadastro, on_delete=models.CASCADE, null=True, blank=True)
     id_operador = models.ForeignKey(User, on_delete=models.CASCADE, related_name='Operador', null=True, blank=True)
     STATUS = (
         ('P', 'Pendente'),

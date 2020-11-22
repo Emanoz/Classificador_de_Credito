@@ -46,7 +46,7 @@
       </thead>
       <tbody>
         {% for ficha in object_list %}
-          {% if ficha.id_cliente == user %}
+          {% if ficha.id_cadastro.id_cliente == user %}
             <tr>
               <!-- Listagem das fichas do cliente -->
               <td>{{ ficha.id }}</td>

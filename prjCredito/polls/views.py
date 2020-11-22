@@ -121,4 +121,13 @@ def atualizar_operador(request, id_operador):
   
     return render(request, "polls/atualizar_operador.html", context) 
 
+def verificar_cadastro(request):
+    context = {}
+ 
+    try: 
+        Cadastro.objects.get(id_cliente=request.user.id)
+        return HttpResponseRedirect("/polls/solicitar_ficha") 
+    except:
+        return HttpResponseRedirect("/polls/cadastro_perfil")  
+
   
