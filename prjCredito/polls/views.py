@@ -105,7 +105,7 @@ def atribuirOperador(request, id_ficha):
     ficha.id_operador = request.user
     ficha.save()
 
-    return HttpResponseRedirect("/detalhes_ficha/" + id_ficha) 
+    return HttpResponseRedirect("/polls/" + id_ficha) 
 
 class ListarOperadores(ListView):
     model = User
@@ -139,9 +139,9 @@ def verificar_cadastro(request):
     context = {}
  
     try: 
-        Cadastro.objects.get(id_cliente=request.user.id)
+        Cadastro.objects.get(id_cliente=request.user)
         return HttpResponseRedirect("/polls/solicitar_ficha") 
-    except:
+    except Cadastro.DoesNotExist:
         return HttpResponseRedirect("/polls/cadastro_perfil")  
 
   

@@ -133,6 +133,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "statics"
 ]
 
+DATETIME_FORMAT="%d-%m-%Y"
+
 STATIC_URL = '/static/'
 
 EMAIL_USE_TLS = True

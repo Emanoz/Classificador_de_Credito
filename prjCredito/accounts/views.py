@@ -30,7 +30,7 @@ def signup(request):
             user.save()
             user.groups.add(Group.objects.get(name='Cliente'))
             current_site = get_current_site(request)
-            mail_subject = 'Activate your blog account.'
+            mail_subject = 'Ative sua conta no Classificador de Crédito.'
             message = render_to_string('registration/acc_active_email.html', {
                 'user': user,
                 'domain': current_site.domain,

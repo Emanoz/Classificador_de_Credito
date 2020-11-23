@@ -19,7 +19,7 @@ class Cadastro(models.Model):
     cep = models.CharField(max_length=8)
     renda = models.FloatField()
     qtd_filhos = models.IntegerField()
-    data_nascimento = models.DateTimeField(null=True, blank=True)
+    #data_nascimento = models.DateTimeField(null=True, blank=True)
     estado_civil = models.CharField(max_length=15)
     tempo_cargo = models.PositiveIntegerField()
     data_cadastro = models.DateTimeField(auto_now_add=True)
