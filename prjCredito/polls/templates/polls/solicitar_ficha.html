@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="sortcut icon" href="{% static 'images/icons.png' %}" type="image/png"/>;
+    <link rel="sortcut icon" href="{% static 'images/icons.png' %}" type="image/png"/>
 
     <title>Classificador de crédito</title>
     <link rel="stylesheet" href="{% static 'css/layout.css' %}" />
@@ -33,7 +33,7 @@
     <h2>Ficha</h2>
     <br />
     <div class="container">
-      <form method="POST">
+      <form method="POST" enctype="multipart/form-data">
         <h3>Dados</h3>
         <div class="row">
           {% csrf_token %}

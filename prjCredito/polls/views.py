@@ -22,14 +22,28 @@ class Dashboard(ListView):
 class CadastroFicha(CreateView):
     model = Cadastro
     template_name = 'polls/cadastro_perfil.html'
-    fields = "__all__"
-    success_url = "/"
+    fields = ["id_cargo", "nome", "rg", "cpf", "cep", "renda", "qtd_filhos", "estado_civil", "tempo_cargo"]
+    success_url = "/polls/solicitar_ficha"
 
-class SolicitarFicha(CreateView):
+    def form_valid(self, form):
+        form.instance.id_cliente = self.request.user
+        return super().form_valid(form)
+
+"""class SolicitarFicha(CreateView):
     model = Ficha
     template_name = 'polls/solicitar_ficha.html'
     fields = "__all__"
-    success_url = "/"
+    success_url = "/"""
+
+def solicitar_ficha(request):
+    if request.method == 'POST':
+        form = FichaForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+    else:
+        form = FichaForm()
+    return render(request, 'polls/solicitar_ficha.html', {'form': form})
 
 class FichaDetalhe(DetailView):
     model = Ficha

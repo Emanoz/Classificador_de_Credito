@@ -14,7 +14,8 @@ class FichaForm(forms.ModelForm):
 
     class Meta:
         model = Ficha
-        fields =  "__all__"
+        fields =  ["id_cadastro", "caminho_foto", "caminho_cpf", "caminho_rg", "caminho_comprovante_renda"]
+
 
 class CargoForm(forms.ModelForm):    
 

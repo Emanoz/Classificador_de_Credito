@@ -128,7 +128,7 @@
           <label for="foto">Foto pessoal</label>
         </div>
         <div class="col-75">
-          <input type="image" id="foto" name="foto" />
+          <img src="{{ object.caminho_foto.url }}" />
         </div>
       </div>
 
@@ -137,7 +137,7 @@
           <label for="foto_cpf">CPF</label>
         </div>
         <div class="col-75">
-          <input type="image" id="foto_cpf" name="foto_cpf" />
+          <img src="{{ object.caminho_cpf.url }}" />
         </div>
       </div>
 
@@ -146,7 +146,7 @@
           <label for="foto_rg">RG</label>
         </div>
         <div class="col-75">
-          <input type="image" id="foto_rg" name="foto_rg" />
+          <img src="{{ object.caminho_rg.url }}" />
         </div>
       </div>
 
@@ -155,7 +155,7 @@
           <label for="foto_renda">Comprovante de renda</label>
         </div>
         <div class="col-75">
-          <input type="image" id="foto_renda" name="foto_renda" />
+          <img src="{{ object.caminho_comprovante_renda.url }}" />
         </div>
       </div>
     </form>

@@ -19,13 +19,13 @@ class Cadastro(models.Model):
     cep = models.CharField(max_length=8)
     renda = models.FloatField()
     qtd_filhos = models.IntegerField()
-    #data_nascimento = models.DateTimeField(null = True)
+    data_nascimento = models.DateTimeField(null=True, blank=True)
     estado_civil = models.CharField(max_length=15)
     tempo_cargo = models.PositiveIntegerField()
     data_cadastro = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.cpf
+        return 'Data do cadastro: ' + self.data_cadastro.strftime("%b %d %Y %H:%M:%S")
 
 class Usuario(models.Model):
     email = models.CharField(max_length=150)
@@ -58,10 +58,10 @@ class Ficha(models.Model):
                             default = 'P')
     data_ficha = models.DateTimeField(auto_now_add=True, blank=True)
     credito = models.FloatField(default=50, null=True, blank=True)
-    caminho_foto = models.CharField(max_length=150, null=True, blank=True)
-    caminho_rg = models.CharField(max_length=150, null=True, blank=True)
-    caminho_cpf = models.CharField(max_length=150, null=True, blank=True)
-    caminho_comprovante_renda = models.CharField(max_length=150, null=True, blank=True)
+    caminho_foto = models.ImageField(upload_to='upload_fichas/%Y/%m/%d', null=True, blank=True, default="upload_fichas/index.png")
+    caminho_rg = models.ImageField(upload_to='upload_fichas/%Y/%m/%d', null=True, blank=True, default="upload_fichas/index.png")
+    caminho_cpf = models.ImageField(upload_to='upload_fichas/%Y/%m/%d', null=True, blank=True, default="upload_fichas/index.png")
+    caminho_comprovante_renda = models.ImageField(upload_to='upload_fichas/%Y/%m/%d', null=True, blank=True, default="upload_fichas/index.png")
 
     def get_absolute_url(self):
         return reverse('detalhes_ficha', args=[self.pk])
