@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+{% load static %}
+<html long="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Solicitar ficha</title>
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}" />
+  </head>
+  <body>
+        <ul>
+        <li>
+            <a href="{% url 'dashboard' %}" >  
+            <img src="" width="18" height="18" />        
+            </a>
+        </li>
+        {% if user.groups.all.0.name == 'Cliente' %}
+            <li><a class="active" href="{% url 'verificar_cadastro' %}">Ficha</a></li>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <li style="float: right"><a href="{% url 'logout' %}">Sair</a></li>
+            <li style="float: right"><p>Olá {{user.username}}</p></li>
+        {% else %}
+            <li style="float: right"><a href="{% url 'login' %}">Login</a></li>
+            <li style="float: right"><p>Você não está logado</p></li>
+        {% endif %}
+        {% if user.groups.all.0.name != 'Cliente' %}
+            <li class="active"><a href="{% url 'esteira_analise' %}">Análise</a></li>
+        {% endif %}
+        <li>
+            <div class="dropdown">
+            <button class="dropbtn">Cadastros</button>
+            <div class="dropdown-content">
+                {% if user.groups.all.0.name == 'Cliente' %}
+                <a href="#">Perfil</a>
+                {% else %}
+                <a href="{% url 'cadastro_cargo' %}">Cargos</a>
+                <a href="{% url 'cadastro_operador' %}">Operadores</a>
+                {% endif %}
+            </div>
+            </div>
+        </li>
+        </ul>
+
+        <br />
+        <h2>Cadastro</h2>
+        <br />
+        
+        <form method="POST">
+            {% csrf_token %}
+            <h3>Dados</h3>
+            <div class="row">
+            <div class="col-25">
+                <label for="nome">Nome</label>
+            </div>
+            <div class="col-75">
+                {{ form.nome }}
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-25">
+                <label for="cpf">CPF</label>
+            </div>
+            <div class="col-75">
+                {{ form.cpf }}
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-25">
+                <label for="rg">RG</label>
+            </div>
+            <div class="col-75">
+                {{ form.rg }}
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-25">
+                <label for="cep">CEP</label>
+            </div>
+            <div class="col-75">
+                {{ form.cep }}
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-25">
+                <label for="renda">Renda</label>
+            </div>
+            <div class="col-75">
+                {{ form.renda }}
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-25">
+                <label for="filhos">Filhos</label>
+            </div>
+            <div class="col-75">
+                {{ form.qtd_filhos }}
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-25">
+                <label for="nascimento">Idade (anos)</label>
+            </div>
+            <div class="col-75">
+                {{ form.idade }}
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-25">
+                <label for="estados_civis">Estado Civil</label>
+            </div>
+            <div class="col-75">
+                {{ form.estado_civil }}
+                <datalist id="estado_civil">
+                <option value="Solteiro(a)"></option>
+                <option value="Casado(a)"></option>
+                <option value="Divorciado(a)"></option>
+                <option value="Viúvo(a)"></option>
+                </datalist>
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-25">
+                <label for="cpf">Cargo</label>
+            </div>
+            <div class="col-75">
+                {{ form.id_cargo }}
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-25">
+                <label for="cpf">Tempo no cargo (meses)</label>
+            </div>
+            <div class="col-75">
+                {{ form.tempo_cargo }}
+            </div>
+            </div>
+
+            <div class="row">
+            <input type="submit" value="Salvar" />
+        </form>
+
+    </body>

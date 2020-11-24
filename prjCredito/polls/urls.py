@@ -15,6 +15,7 @@ urlpatterns = [
     path('polls/verificar_cadastro/', views.verificar_cadastro, name='verificar_cadastro'),
     path('polls/solicitar_ficha/', views.solicitar_ficha, name='solicitar_ficha'),
     url(r'^atribuir_operador/(?P<id_ficha>\w+)/$', views.atribuirOperador, name='atribuir_operador'),
+    url(r'^atualizar_perfil/(?P<id_user>\w+)/$', views.atualizar_perfil, name='atualizar_perfil'),
     url(r'^excluir_cargo/(?P<id_cargo>\w+)/$', views.excluir_cargo, name='excluir_cargo'),
     url(r'^atualizar_cargo/(?P<id_cargo>\w+)/$', views.atualizar_cargo, name='atualizar_cargo'),
     url(r'^polls/cadastro_operador/$', views.CadastroOperador, name='cadastro_operador'),

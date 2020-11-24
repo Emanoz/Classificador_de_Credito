@@ -18,14 +18,15 @@ class Cadastro(models.Model):
     cpf = models.CharField(max_length=11)
     cep = models.CharField(max_length=8)
     renda = models.FloatField()
-    qtd_filhos = models.IntegerField()
-    #data_nascimento = models.DateTimeField(null=True, blank=True)
+    qtd_filhos = models.PositiveIntegerField()
+    idade = models.PositiveIntegerField()
     estado_civil = models.CharField(max_length=15)
     tempo_cargo = models.PositiveIntegerField()
     data_cadastro = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return 'Data do cadastro: ' + self.data_cadastro.strftime("%b %d %Y %H:%M:%S")
+             
 
 class Usuario(models.Model):
     email = models.CharField(max_length=150)

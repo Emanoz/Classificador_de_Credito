@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, UpdateView
 from django.views.generic.edit import CreateView
 from . models import Ficha, Cadastro, Cargo
 from django.contrib import messages
@@ -142,6 +142,19 @@ def verificar_cadastro(request):
         Cadastro.objects.get(id_cliente=request.user)
         return HttpResponseRedirect("/polls/solicitar_ficha") 
     except Cadastro.DoesNotExist:
-        return HttpResponseRedirect("/polls/cadastro_perfil")  
+        return HttpResponseRedirect("/polls/cadastro_perfil") 
 
+def atualizar_perfil(request, id_user): 
+    context = {}
+
+    cadastro = Cadastro.objects.get(id_cliente=id_user) 
   
+    form = CadastroForm(request.POST or None, instance = cadastro) 
+  
+    if form.is_valid(): 
+        form.save() 
+        return HttpResponseRedirect("/") 
+   
+    context["form"] = form 
+  
+    return render(request, "polls/atualizar_perfil.html", context)  

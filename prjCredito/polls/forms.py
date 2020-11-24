@@ -8,7 +8,7 @@ class CadastroForm(forms.ModelForm):
 
     class Meta:
         model = Cadastro
-        fields =  "__all__"
+        fields =  ["id_cargo", "nome", "rg", "cpf", "cep", "renda", "qtd_filhos", "idade", "estado_civil", "tempo_cargo"]
 
 class FichaForm(forms.ModelForm):    
 
