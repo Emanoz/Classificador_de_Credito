@@ -49,27 +49,26 @@ def solicitar_ficha(request):
 
             if validar_cpf(cadastro.cpf) == 0:
                 ficha.status = 'R'
-                #ficha.motivo = 'O CPF é inválido'
+                ficha.motivo_recusa = 'O CPF é inválido'
                 ficha.save()
                 return HttpResponseRedirect("/") 
             elif cadastro.idade < 18:
                 ficha.status = 'R'
-                #ficha.motivo = 'O cliente é menor de idade'
+                ficha.motivo_recusa = 'O cliente é menor de idade'
                 ficha.save()
                 return HttpResponseRedirect("/")
             elif cadastro.renda <= minimo_cargo or cadastro.renda >= maximo_cargo:
                 ficha.status = 'R'
-                #ficha.motivo = 'A renda não é compatível com o cargo - risco de fraude'
+                ficha.motivo_recusa = 'A renda não é compatível com o cargo - risco de fraude'
                 ficha.save()
                 return HttpResponseRedirect("/")
             elif calcular_risco(cadastro) > 10:
                 ficha.status = 'R'
-                #ficha.motivo = 'O risco para a liberação de crédito é muito alta'
+                ficha.motivo_recusa = 'O risco para a liberação de crédito é muito alta'
                 ficha.save()
                 return HttpResponseRedirect("/")
             else:   
                 ficha.status = 'A'
-                #ficha.motivo = 'Aprovado com sucesso'
                 ficha.save()
                 return HttpResponseRedirect("/")
     else:

@@ -63,6 +63,7 @@ class Ficha(models.Model):
     caminho_rg = models.ImageField(upload_to='upload_fichas/%Y/%m/%d', null=True, blank=True, default="upload_fichas/index.png")
     caminho_cpf = models.ImageField(upload_to='upload_fichas/%Y/%m/%d', null=True, blank=True, default="upload_fichas/index.png")
     caminho_comprovante_renda = models.ImageField(upload_to='upload_fichas/%Y/%m/%d', null=True, blank=True, default="upload_fichas/index.png")
+    motivo_recusa = models.CharField(max_length=100)
 
     def get_absolute_url(self):
         return reverse('detalhes_ficha', args=[self.pk])
