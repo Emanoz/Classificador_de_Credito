@@ -39,8 +39,39 @@ def solicitar_ficha(request):
     if request.method == 'POST':
         form = FichaForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/')
+            ficha = form.save(commit=False)
+            cadastro = Cadastro.objects.get(id_cliente=request.user)
+            cargo = Cargo.objects.get(id=cadastro.id_cargo.id)
+            minimo_cargo = cargo.salario_minimo
+            maximo_cargo = cargo.salario_maximo
+
+            ficha.id_cadastro = cadastro
+
+            if validar_cpf(cadastro.cpf) == 0:
+                ficha.status = 'R'
+                #ficha.motivo = 'O CPF é inválido'
+                ficha.save()
+                return HttpResponseRedirect("/") 
+            elif cadastro.idade < 18:
+                ficha.status = 'R'
+                #ficha.motivo = 'O cliente é menor de idade'
+                ficha.save()
+                return HttpResponseRedirect("/")
+            elif cadastro.renda <= minimo_cargo or cadastro.renda >= maximo_cargo:
+                ficha.status = 'R'
+                #ficha.motivo = 'A renda não é compatível com o cargo - risco de fraude'
+                ficha.save()
+                return HttpResponseRedirect("/")
+            elif calcular_risco(cadastro) > 10:
+                ficha.status = 'R'
+                #ficha.motivo = 'O risco para a liberação de crédito é muito alta'
+                ficha.save()
+                return HttpResponseRedirect("/")
+            else:   
+                ficha.status = 'A'
+                #ficha.motivo = 'Aprovado com sucesso'
+                ficha.save()
+                return HttpResponseRedirect("/")
     else:
         form = FichaForm()
     return render(request, 'polls/solicitar_ficha.html', {'form': form})
@@ -157,4 +188,107 @@ def atualizar_perfil(request, id_user):
    
     context["form"] = form 
   
-    return render(request, "polls/atualizar_perfil.html", context)  
+    return render(request, "polls/atualizar_perfil.html", context) 
+
+"""def politicas_credito(request, id_ficha):
+    context = {}
+    ficha = Ficha.objects.get(id=id_ficha)
+    cadastro = Cadastro.objects.get(id_cliente=ficha.id_cadastro.id)
+    cargo = Cargo.objects.get(id=cadastro.id_cargo.id)
+    minimo_cargo = cargo.salario_minimo
+    maximo_cargo = cargo.salario_maximo
+
+    form = FichaFormComStatus(request.GET or None, instance = ficha) 
+
+    if form.is_valid():
+        if validar_cpf(cadastro.cpf) == 0:
+            form.status = 'R'
+            #form.motivo = 'O CPF é inválido'
+            form.save()
+            return HttpResponseRedirect("/") 
+        if cadastro.idade < 18:
+            form.status = 'R'
+            #form.motivo = 'O cliente é menor de idade'
+            form.save()
+            return HttpResponseRedirect("/")
+        if cadastro.renda <= minimo_cargo and cadastro.renda >= maximo_cargo:
+            form.status = 'R'
+            #form.motivo = 'A renda não é compatível com o cargo - risco de fraude'
+            form.save()
+            return HttpResponseRedirect("/")
+            
+            form.status = 'A'
+            #form.motivo = 'Aprovado com sucesso'
+            form.save()
+
+    return HttpResponseRedirect("/")"""
+    
+def validar_cpf(cpf):
+    i = 10
+    soma = 0
+    for c in cpf:
+        soma += int(c) * i
+        i -= 1
+        if i < 2:
+            break   
+
+    soma *= 10
+    soma = soma % 11
+
+    if str(soma) != cpf[9]:
+        return 0
+
+    i = 11
+    soma = 0
+    for c in cpf:
+        soma += int(c) * i
+        i -= 1
+        if i < 2:
+            break 
+    soma *= 10
+    soma = soma % 11
+
+    if str(soma) != cpf[10]:
+        return 0
+
+    return 1 
+
+def calcular_risco(cadastro):
+    risco = 0
+
+    # Risco conforme a idade
+    if cadastro.idade >= 18 and cadastro.idade <= 21:
+        risco += 3
+    elif cadastro.idade >= 22 and cadastro.idade <= 29:  
+        risco += 1
+    elif cadastro.idade > 30:
+        risco -= 2
+    # Somando o risco de acordo com a quantidade de filhos
+    if cadastro.qtd_filhos > 0:
+        risco += cadastro.qtd_filhos
+    else:
+        risco -= 1
+    # Risco conforme estado civil
+    if cadastro.estado_civil != 'Soltero(a)':
+        risco += 2
+    else:
+        risco -= 1
+    # Risco conforme tempo de trabalho (em meses)
+    if cadastro.tempo_cargo < 36:
+        risco += 2
+    elif cadastro.tempo_cargo >= 84 and cadastro.tempo_cargo <= 124:
+        risco -= 1
+    elif cadastro.tempo_cargo > 124:
+        risco -= 3
+    
+    return risco
+
+
+
+
+
+
+
+
+
+

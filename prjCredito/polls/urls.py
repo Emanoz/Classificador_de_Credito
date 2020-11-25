@@ -14,6 +14,7 @@ urlpatterns = [
     path('polls/esteira_analise/', views.EsteiraOperador.as_view(), name='esteira_analise'),
     path('polls/verificar_cadastro/', views.verificar_cadastro, name='verificar_cadastro'),
     path('polls/solicitar_ficha/', views.solicitar_ficha, name='solicitar_ficha'),
+    #url(r'^polls/politicas_credito/(?P<id_ficha>\w+)/$', views.politicas_credito, name='politicas_credito'),
     url(r'^atribuir_operador/(?P<id_ficha>\w+)/$', views.atribuirOperador, name='atribuir_operador'),
     url(r'^atualizar_perfil/(?P<id_user>\w+)/$', views.atualizar_perfil, name='atualizar_perfil'),
     url(r'^excluir_cargo/(?P<id_cargo>\w+)/$', views.excluir_cargo, name='excluir_cargo'),

@@ -5,17 +5,16 @@ from django.contrib.auth.models import User
 
 
 class CadastroForm(forms.ModelForm):    
-
+    
     class Meta:
         model = Cadastro
         fields =  ["id_cargo", "nome", "rg", "cpf", "cep", "renda", "qtd_filhos", "idade", "estado_civil", "tempo_cargo"]
 
 class FichaForm(forms.ModelForm):    
-
+    
     class Meta:
         model = Ficha
-        fields =  ["id_cadastro", "caminho_foto", "caminho_cpf", "caminho_rg", "caminho_comprovante_renda"]
-
+        fields =  ["caminho_foto", "caminho_cpf", "caminho_rg", "caminho_comprovante_renda"]
 
 class CargoForm(forms.ModelForm):    
 
