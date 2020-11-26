@@ -39,6 +39,7 @@ textarea {
   top: 50%;
   -ms-transform: translateY(50%);
   transform: translateY(50%);
+  font-weight: bold;
 }
 
 .col-75 {
@@ -47,6 +48,7 @@ textarea {
   float: left;
   width: 75%;
   margin-top: 6px;
+  font-weight: bold;
 }
 
 .row {
@@ -63,6 +65,7 @@ textarea {
 
 .row div {
   margin: auto;
+  text-align: center;
 }
 
 .row:after {
@@ -205,6 +208,7 @@ div {
   border-radius: 5px;
   background-color: #ffffff;
   padding: 20px;
+  text-align: center;
 }
 
 .form {

@@ -68,7 +68,7 @@ def solicitar_ficha(request):
                 ficha.save()
                 return HttpResponseRedirect("/")
             else:   
-                ficha.status = 'A'
+                ficha.credito = (cadastro.renda - (cadastro.renda * 0.2)) - (cadastro.qtd_filhos * (cadastro.renda * 0.1))
                 ficha.save()
                 return HttpResponseRedirect("/")
     else:
@@ -281,6 +281,14 @@ def calcular_risco(cadastro):
         risco -= 3
     
     return risco
+
+def resultadoFicha(request, id_ficha, resultado): 
+    ficha = Ficha.objects.get(id=id_ficha) 
+
+    ficha.status = resultado
+    ficha.save() 
+
+    return HttpResponseRedirect("/polls/esteira_analise") 
 
 
 

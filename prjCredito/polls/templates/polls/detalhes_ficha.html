@@ -137,6 +137,25 @@
         </div>
       </div>
 
+      <div class="row">
+        <div class="col-25">
+          <label for="cpf">Crédito</label>
+        </div>
+        <div class="col-75">
+          {{ object.credito }}
+        </div>
+      </div>
+
+      {% if object.status == 'R' %}
+        <div class="row">
+          <div class="col-25">
+            <label for="cpf">Motivo da recusa</label>
+          </div>
+          <div class="col-75">
+            {{ object.motivo_recusa }}
+          </div>
+        </div>
+      {% endif %}
 
       <div class="row">
         <div class="col-25">
@@ -174,5 +193,19 @@
         </div>
       </div>
     </form>
+      {% if user.groups.all.0.name != 'Cliente' %}
+        <div class="row">
+          <a href="{% url 'resultado_ficha' object.id 'A' %}">
+            <input type="submit" value="Aprovar" />
+          </a>  
+        </div>
+
+        <div class="row">
+          <a href="{% url 'resultado_ficha' object.id 'R' %}">
+            <input type="submit" value="Reprovar" />
+          </a>
+        </div>
+      {% endif %}
+
   </body>
 </html>
