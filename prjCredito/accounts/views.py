@@ -42,7 +42,7 @@ def signup(request):
                         mail_subject, message, to=[to_email]
             )
             email.send()
-            return HttpResponse('Por favor, confirme o seu cadastro no seu email.')
+            return render(request, 'registration/confirmar_email.html')
     else:
         form = SignupForm()
     return render(request, 'registration/signup.html', {'form': form})
@@ -56,6 +56,6 @@ def activate(request, uidb64, token):
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
         user.save()
-        return HttpResponse('Obrigado pela confirmação de seu cadastro. Agora você conseguirá efetuar o login de seu usuário.')
+        return render(request, 'registration/confirmado_email.html')
     else:
-        return HttpResponse('O link de ativação estava inválido!')
+        return render(request, 'registration/invalido_token.html')

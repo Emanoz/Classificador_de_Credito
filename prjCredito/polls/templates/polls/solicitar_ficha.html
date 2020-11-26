@@ -21,10 +21,10 @@
       {% endif %}
       {% if user.is_authenticated %}
         <li style="float: right"><a href="{% url 'logout' %}">Sair</a></li>
-        <li style="float: right"><p>Olá {{user.username}}</p></li>
+        <li style="float: right; color:white"><p>Olá {{user.username}}</p></li>
       {% else %}
         <li style="float: right"><a href="{% url 'login' %}">Login</a></li>
-        <li style="float: right"><p>Você não está logado</p></li>
+        <li style="float: right; color:white"><p style="color: black">Você não está logado</p></li>
       {% endif %}
       {% if user.groups.all.0.name != 'Cliente' %}
         <li class="active"><a href="{% url 'esteira_analise' %}">Análise</a></li>
@@ -34,7 +34,7 @@
           <button class="dropbtn">Cadastros</button>
           <div class="dropdown-content">
             {% if user.groups.all.0.name == 'Cliente' %}
-              <a href="#">Perfil</a>
+              <a href="{% url 'atualizar_perfil' user.id %}">Perfil</a>
             {% else %}
               <a href="{% url 'cadastro_cargo' %}">Cargos</a>
               <a href="{% url 'cadastro_operador' %}">Operadores</a>
@@ -53,14 +53,15 @@
         <div class="row">
           {% csrf_token %}
           {{ form.as_p }}
-          <div class="col-25">
-            <label for="solicitar">Você quer solicitar uma nova ficha?</label>
+          <div class="container">
+            <div>
+              <h3>Deseja solicitar a ficha?</h3>
+            </div>
+          <div class="row">
+            <input type="submit" value="Solicitar" />
           </div>
-        </div>
-
-        <div class="row">
-          <input type="submit" value="Solicitar" />
-        </div>
+      </div>
+    </div>
       </form>
     </div>
   </body>

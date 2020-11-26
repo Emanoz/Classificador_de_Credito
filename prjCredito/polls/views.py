@@ -22,7 +22,7 @@ class Dashboard(ListView):
 class CadastroFicha(CreateView):
     model = Cadastro
     template_name = 'polls/cadastro_perfil.html'
-    fields = ["id_cargo", "nome", "rg", "cpf", "cep", "renda", "qtd_filhos", "estado_civil", "tempo_cargo"]
+    fields = ["id_cargo", "nome", "rg", "cpf", "cep", "renda", "qtd_filhos", "idade", "estado_civil", "tempo_cargo"]
     success_url = "/polls/solicitar_ficha"
 
     def form_valid(self, form):

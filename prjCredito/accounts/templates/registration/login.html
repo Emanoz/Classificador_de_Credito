@@ -1,0 +1,27 @@
+{% load static %}
+<html long="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>  
+    <div class="login-box">
+      <h1>Classificador de crédito</h1>
+      <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <!-- USERNAME INPUT -->
+        <div  class="login-space">
+            <a href="#">Esqueceu sua senha?</a></br>
+        </div>
+        <input type="submit" value="Entrar" /></br>
+        <div class="button-center">
+            <a href="{% url 'signup' %}">Inscreva-se</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

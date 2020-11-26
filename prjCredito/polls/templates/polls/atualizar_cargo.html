@@ -23,10 +23,10 @@
       {% endif %}
       {% if user.is_authenticated %}
         <li style="float: right"><a href="{% url 'logout' %}">Sair</a></li>
-        <li style="float: right"><p>Olá {{user.username}}</p></li>
+        <li style="float: right; color:white"><p>Olá {{user.username}}</p></li>
       {% else %}
         <li style="float: right"><a href="{% url 'login' %}">Login</a></li>
-        <li style="float: right"><p>Você não está logado</p></li>
+        <li style="float: right; color:white"><p style="color: black">Você não está logado</p></li>
       {% endif %}
       {% if user.groups.all.0.name != 'Cliente' %}
         <li class="active"><a href="{% url 'esteira_analise' %}">Análise</a></li>
@@ -36,7 +36,7 @@
           <button class="dropbtn">Cadastros</button>
           <div class="dropdown-content">
             {% if user.groups.all.0.name == 'Cliente' %}
-              <a href="#">Perfil</a>
+              <a href="{% url 'atualizar_perfil' user.id %}">Perfil</a>
             {% else %}
               <a href="{% url 'cadastro_cargo' %}">Cargos</a>
               <a href="{% url 'cadastro_operador' %}">Operadores</a>
@@ -51,7 +51,35 @@
 
     <form method="POST"> 
         {% csrf_token %} 
-        {{ form.as_p }} 
-        <input type="submit" value="Atualizar"> 
+        <div class="container">
+          <div class="row">
+            <div class="col-25">
+              <label for="cpf">Nome do cargo</label>
+            </div>
+            <div class="col-75">
+              {{form.nome_cargo}}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="cpf">Salario mínimo</label>
+            </div>
+            <div class="col-75">
+              {{form.salario_minimo}}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="cpf">Salario máximo</label>
+            </div>
+            <div class="col-75">
+              {{form.salario_maximo}}
+            </div>
+          </div>
+          
+          <input type="submit" value="Atualizar"> 
+        </div>
     </form> 
   </body>

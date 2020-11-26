@@ -23,10 +23,10 @@
       {% endif %}
       {% if user.is_authenticated %}
         <li style="float: right"><a href="{% url 'logout' %}">Sair</a></li>
-        <li style="float: right"><p>Olá {{user.username}}</p></li>
+        <li style="float: right; color:white"><p>Olá {{user.username}}</p></li>
       {% else %}
         <li style="float: right"><a href="{% url 'login' %}">Login</a></li>
-        <li style="float: right"><p>Você não está logado</p></li>
+        <li style="float: right; color:white"><p style="color: black">Você não está logado</p></li>
       {% endif %}
       {% if user.groups.all.0.name != 'Cliente' %}
         <li class="active"><a href="{% url 'esteira_analise' %}">Análise</a></li>
@@ -36,7 +36,7 @@
           <button class="dropbtn">Cadastros</button>
           <div class="dropdown-content">
             {% if user.groups.all.0.name == 'Cliente' %}
-              <a href="#">Perfil</a>
+              <a href="{% url 'atualizar_perfil' user.id %}">Perfil</a>
             {% else %}
               <a href="{% url 'cadastro_cargo' %}">Cargos</a>
               <a href="{% url 'cadastro_operador' %}">Operadores</a>
@@ -74,11 +74,14 @@
           {{ form.salario_maximo }}
         </div>
       </div>
-      <div class="button-space">
+      <div class="button-search">
           <input type="submit" value="Cadastrar" />
-        </div>
+      </div>
     </form>
-    <div class="button-space">
-          <a href="{% url 'lista_cargos' %}">Visualizar cargos</a>
+    <div class="button-search">
+          <a href="{% url 'lista_cargos' %}">
+            <input type="submit" value="Cargos" />
+          </a>
+    </div>
   </body>
 </html>
