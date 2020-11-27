@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
-    <div class="login-box">
+    <div class="inscrevase-box">
     {% block content %}
       <h1>Inscreva-se</h1>
       <form method="POST" action=".">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" value="Entrar"/>
+        <input type="submit" value="Cadastrar"/>
       </form> 
     {% endblock %}
     </div>

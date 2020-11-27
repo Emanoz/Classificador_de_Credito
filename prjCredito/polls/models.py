@@ -64,7 +64,7 @@ class Ficha(models.Model):
                             choices = STATUS,
                             default = 'P')
     data_ficha = models.DateTimeField(auto_now_add=True, blank=True)
-    credito = models.FloatField(default=50, null=True, blank=True)
+    credito = models.FloatField(default=0, null=True, blank=True)
     caminho_foto = models.ImageField(upload_to='upload_fichas/%Y/%m/%d')
     caminho_rg = models.ImageField(upload_to='upload_fichas/%Y/%m/%d')
     caminho_cpf = models.ImageField(upload_to='upload_fichas/%Y/%m/%d', null=True, blank=True, default="upload_fichas/vazio.png")
