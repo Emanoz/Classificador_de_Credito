@@ -5,15 +5,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="sortcut icon" href="{% static 'images/icons.png' %}" type="image/png"/>
-
     <title>Classificador de crédito</title>
     <link rel="stylesheet" href="{% static 'css/layout.css' %}" />
+
   </head>
   <body>
     <ul>
       <li>
         <a href="{% url 'dashboard' %}" >  
-          <img src="" width="18" height="18" />        
+          <img src="{% static 'images/icons.png' %}" width="24" height="24" />        
         </a>
       </li>
       {% if user.groups.all.0.name == 'Cliente' %}
@@ -47,6 +47,7 @@
     <br />
 
     <form>
+    <div class="container">
       <div class="row">
         <div class="col-25">
           <label for="nome">Status da ficha</label>
@@ -223,6 +224,6 @@
           </a>
         </div>
       {% endif %}
-
+  </div>
   </body>
 </html>

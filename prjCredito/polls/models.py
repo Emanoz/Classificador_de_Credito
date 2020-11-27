@@ -20,7 +20,13 @@ class Cadastro(models.Model):
     renda = models.FloatField()
     qtd_filhos = models.PositiveIntegerField()
     idade = models.PositiveIntegerField()
-    estado_civil = models.CharField(max_length=15)
+    ESTADOS = (
+        ('Solteiro (a)', 'Solteiro (a)'),
+        ('Casado (a)', 'Casado (a)'),
+        ('Divorciado (a)', 'Divorciado (a)'),
+        ('Viúvo (a)', 'Viúvo (a)'),
+    )
+    estado_civil = models.CharField(max_length=30, choices=ESTADOS, default="Solteiro (a)")
     tempo_cargo = models.PositiveIntegerField()
     data_cadastro = models.DateTimeField(auto_now_add=True)
 
@@ -59,10 +65,10 @@ class Ficha(models.Model):
                             default = 'P')
     data_ficha = models.DateTimeField(auto_now_add=True, blank=True)
     credito = models.FloatField(default=50, null=True, blank=True)
-    caminho_foto = models.ImageField(upload_to='upload_fichas/%Y/%m/%d', null=True, blank=True, default="upload_fichas/index.png")
-    caminho_rg = models.ImageField(upload_to='upload_fichas/%Y/%m/%d', null=True, blank=True, default="upload_fichas/index.png")
-    caminho_cpf = models.ImageField(upload_to='upload_fichas/%Y/%m/%d', null=True, blank=True, default="upload_fichas/index.png")
-    caminho_comprovante_renda = models.ImageField(upload_to='upload_fichas/%Y/%m/%d', null=True, blank=True, default="upload_fichas/index.png")
+    caminho_foto = models.ImageField(upload_to='upload_fichas/%Y/%m/%d')
+    caminho_rg = models.ImageField(upload_to='upload_fichas/%Y/%m/%d')
+    caminho_cpf = models.ImageField(upload_to='upload_fichas/%Y/%m/%d', null=True, blank=True, default="upload_fichas/vazio.png")
+    caminho_comprovante_renda = models.ImageField(upload_to='upload_fichas/%Y/%m/%d')
     motivo_recusa = models.CharField(max_length=100)
 
     def get_absolute_url(self):

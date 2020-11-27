@@ -14,14 +14,11 @@
         {% csrf_token %}
         {{form.as_p}}
         <!-- USERNAME INPUT -->
-        <div  class="login-space">
-            <a href="#">Esqueceu sua senha?</a></br>
-        </div>
         <input type="submit" value="Entrar" /></br>
-        <div class="button-center">
-            <a href="{% url 'signup' %}">Inscreva-se</a>
-        </div>
       </form>
+      <a href="{% url 'signup' %}">
+          <input type="submit" value="Inscreva-se" />
+      </a>
     </div>
   </body>
 </html>
