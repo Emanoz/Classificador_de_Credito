@@ -1,4 +1,8 @@
 {% autoescape off %}
-Olá {{ user.username }},
-Por favor, clique no link para confirmar seu cadastro, http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+Olá, {{ user.username }},
+
+Por gentileza, verifique a sua caixa de entrada para confirmar seu e-mail, http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+
+Atenciosamente,
+Luiza&Emanos
 {% endautoescape %}

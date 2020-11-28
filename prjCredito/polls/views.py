@@ -123,7 +123,7 @@ def CadastroOperador(request):
             user.is_active = True
             user.save()
             user.groups.add(Group.objects.get(name='Operador'))
-            return HttpResponseRedirect('/polls/listar_operadores   ')
+            return HttpResponseRedirect('/polls/listar_operadores')
     else:
         form = OperadorForm()
     return render(request, 'polls/cadastrar_operador.html', {'form': form})

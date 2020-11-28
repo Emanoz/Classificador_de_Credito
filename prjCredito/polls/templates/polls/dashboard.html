@@ -27,7 +27,7 @@
         <li style="float: right; color:white"><p>Olá {{user.username}}</p></li>
       {% else %}
         <li style="float: right"><a href="{% url 'login' %}">Login</a></li>
-        <li style="float: right; color:white"><p style="color: black">Você não está logado</p></li>
+        <li style="float: right; color:white"><p>Você não está logado</p></li>
       {% endif %}
       {% if user.groups.all.0.name != 'Cliente' %}
         <li class="active"><a href="{% url 'esteira_analise' %}">Análise</a></li>
@@ -63,7 +63,7 @@
             <tr>
               <!-- Listagem das fichas do cliente -->
               <td>{{ ficha.id }}</td>
-              <td>{{ ficha.credito }}</td>
+              <td>R$ {{ ficha.credito }}</td>
               <td>{{ ficha.status }}</td>
               <td>
                 <a href="{{ ficha.get_absolute_url }}" >  

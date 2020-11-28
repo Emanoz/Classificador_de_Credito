@@ -46,7 +46,7 @@
     <br />
     <br />
 
-    <form>
+
     <div class="container">
       <div class="row">
         <div class="col-25">
@@ -106,7 +106,7 @@
           <label for="renda">Renda</label>
         </div>
         <div class="col-75">
-          {{ object.id_cadastro.renda }}
+          <label>R$  {{ object.id_cadastro.renda }}</label>
         </div>
       </div>
 
@@ -160,7 +160,7 @@
           <label for="cpf">Crédito</label>
         </div>
         <div class="col-75">
-          {{ object.credito }}
+          <label>R$  {{ object.credito }}</label>
         </div>
       </div>
 
@@ -210,7 +210,6 @@
           <img src="{{ object.caminho_comprovante_renda.url }}" />
         </div>
       </div>
-    </form>
       {% if user.groups.all.0.name != 'Cliente' %}
         <div class="row">
           <a href="{% url 'resultado_ficha' object.id 'A' %}">

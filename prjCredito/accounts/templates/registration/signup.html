@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Inscreva-se</title>
+    <link rel="sortcut icon" href="{% static 'images/icons.png' %}" type="image/png"/>
+    <title>Classificador de crédito</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
@@ -12,7 +13,7 @@
     {% block content %}
       <h1>Inscreva-se</h1>
       <form method="POST" action=".">
-        {% csrf_token %}
+        {% csrf_token %}  
         {{ form.as_p }}
         <input type="submit" value="Cadastrar"/>
       </form> 

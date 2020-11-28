@@ -16,7 +16,6 @@ urlpatterns = [
     path('polls/solicitar_ficha/', views.solicitar_ficha, name='solicitar_ficha'),
     #url(r'^polls/politicas_credito/(?P<id_ficha>\w+)/$', views.politicas_credito, name='politicas_credito'),
     url(r'^resultado_ficha/(?P<id_ficha>\w+)/(?P<resultado>\w+)/$', views.resultadoFicha, name='resultado_ficha'),
-    url(r'^resultado_ficha/(?P<id_ficha>\w+)/(?P<resultado>\w+)/$', views.resultadoFicha, name='resultado_ficha'),
     url(r'^atribuir_operador/(?P<id_ficha>\w+)/$', views.atribuirOperador, name='atribuir_operador'),
     url(r'^atualizar_perfil/(?P<id_user>\w+)/$', views.atualizar_perfil, name='atualizar_perfil'),
     url(r'^excluir_cargo/(?P<id_cargo>\w+)/$', views.excluir_cargo, name='excluir_cargo'),
